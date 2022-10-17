@@ -1,0 +1,171 @@
+
+#include <stdio.h>
+
+int main()
+{ 
+    int i,j,k,max,min,choice;
+    int a[3][3];
+    int b[3][3];
+    int c [3][3]; 
+    int s[2][2];
+    int *p;
+    int *q;
+    p=&a[0][0]; 
+    q=&b[0][0]; 
+   int mul[3][3]; 
+    do{
+        printf("Operation you can perform , please select :-\n");
+        printf("1:-Addition \n");
+        printf("2:-Multiplicaton\n");
+        printf("3:-Saddal Point\n"); 
+        printf("4:-Exist\n"); 
+        printf(" please select your choice :-\n");
+        scanf("%d",&choice);
+    
+     switch(choice){
+         case 1 : 
+         printf("Enter the elements of the Matrix :-\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 scanf("%d\n",&a[i][j]);
+             }
+         } 
+         printf("\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 printf("%d\t",(*p+(i*3)+j));
+             }  
+             printf("\n");
+            
+         } 
+         
+         printf("Enter the elements of the Matrix :-\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 scanf("%d\n",&b[i][j]);
+             }
+         } 
+         printf("\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 printf("%d\t",(*q+(i*3)+j));
+             }  
+             printf("\n");
+            
+         } 
+         printf("Addition of two Matrix is :-\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 c[i][j]=(*p+((i*3)+j))+(*q+((i*3)+j));
+             }
+         } 
+         printf("\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 printf("%d\t",c[i][j]);
+             }  
+             printf("\n");
+            
+         } break;
+         case 2 :printf("Enter the elements of the Matrix :-\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 scanf("%d\n",&a[i][j]);
+             }
+         } 
+         printf("\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 printf("%d\t",(*p+(i*3)+j));
+             }  
+             printf("\n");
+            
+         } 
+         
+         printf("Enter the elements of the Matrix :-\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 scanf("%d\n",&b[i][j]);
+             }
+         } 
+         printf("\n");
+         for (i=0;i<3;i++){
+             for (j=0;j<3;j++){
+                 printf("%d\t",(*q+(i*3)+j));
+             }  
+             printf("\n");
+            
+         } 
+         printf("Multiplication of the elements of Matrix:-\n");
+   for( i=0;i<3;i++){
+       for( j=0;j<3;j++){ 
+           mul[i][j]=0;
+           for( k=0;k<3;k++){
+        mul[i][j]=mul[i][j]+(*(p+((i*3)+k)))*(*(q+((k*3)+j)));
+       } 
+       
+   } 
+   }
+   for(int i=0;i<3;i++){
+       for(int j=0;j<3;j++){ 
+        printf("%d\t",mul[i][j]);
+       } 
+       printf("\n");
+   }
+   break;
+         case 3 :
+     printf("Enter the elements of matrix:-");
+     for(i=0;i<3;i++){
+         for(j=0;j<3;j++){
+             scanf("%d\n",&a[i][j]);
+         }
+     }  
+     printf("\n");
+     for(i=0;i<3;i++){
+         for(j=0;j<3;j++){
+             printf("%d\t",*(p+((i*3)+j)));
+         }
+         printf("\n");
+     }
+       
+        for(i=0;i<3;i++)
+        {
+            min=*(p+((i*3)+0));
+            for(j=0;j<3;j++){
+                if (min>=*(p+((i*3)+j))){
+                    min=*(p+((i*3)+j));
+                    s[0][0]=i;
+                    s[0][1]=j;
+                   
+                }
+            }
+        }
+        j=s[0][1];
+        max=*(p+((0*3)+j));
+        for(k=0;k<3;k++){
+            if (max<=*(p+((k*3)+j)))
+            {
+                max=*(p+((k*3)+j));
+                s[1][0]=k;
+                s[1][1]=j;
+            }
+        }
+        if (min==max){
+            if( s[0][0]==s[1][0]&&s[0][1]==s[1][1]){
+                printf(" saddle point is %d\n",a[s[0][0]][s[0][1]]);
+            }
+        }
+       return 0;
+     
+}
+
+         
+              
+    }while(choice!=4);
+    return 0;
+}
+
+
+
+
+
